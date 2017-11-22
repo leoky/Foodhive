@@ -26,7 +26,7 @@ router.get('/logout', (req, res) => {
 router.post('/', function (req, res) {
   var name = req.body.username;
   var pass = req.body.password;
-  connection.get().query('SELECT * FROM USERS WHERE u_id = ?', [name], (error, results, fields) => {
+  connection.get().query('SELECT * FROM users WHERE u_id = ?', [name], (error, results, fields) => {
     if (error) {
       console.log("error ocurred login", error);
     } else {
