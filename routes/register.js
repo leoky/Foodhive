@@ -21,7 +21,7 @@ router.post('/',(req,res)=>{
     'customer'
   ];
   var a =true;
-  connection.get().query('INSERT INTO USERS VALUES(?,?,?,?,?,?,?,?)',allData,(err,results,fields)=>{
+  connection.get().query('INSERT INTO users VALUES(?,?,?,?,?,?,?,?)',allData,(err,results,fields)=>{
     if(err){
       console.log("error in register form"+ err);
       a= false;
