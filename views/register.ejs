@@ -1,0 +1,118 @@
+<%# for head%>
+<%- include('main/headUser') %>
+
+<%# login%>
+<div class="container-fluid up" style="background:#f9e0e0; padding:0px;">
+  <div class="row  justify-content-center">
+    <div class="col-md-4">
+      <img src="/images/logo.jpg" alt="foodhive logo" style="width:100%">
+      <%# <h4>SIGN UP</h4>%>
+    </div>
+  </div>
+
+  <%# form%>
+  <div class="row d-flex justify-content-center" style="padding-bottom:30px;">
+    <div class="row Fform" style="padding:0 30px">
+
+      <form class="" action="/register  " method="post">
+        <div class="form-group" style="margin-top:25px">
+          <label for="">Name</label>
+          <div class="row">
+            <div class="col">
+              <input type="text" name="firstName" class="form-control FformInput" placeholder="First name">
+            </div>
+            <div class="col">
+              <input type="text" name="lastName" class="form-control FformInput " placeholder="Last name">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control FformInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control FformInput" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Re-Enter Password</label>
+          <input type="password" class="form-control FformInput" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <%# input birthday%>
+        <div class="form-group" style="margin-top:25px">
+          <label for="">Birthday</label>
+          <div class="row">
+            <div class="col-sm-3">
+              <input type="text" name="birthMonth" class="form-control FformInput" placeholder="Month">
+            </div>
+            <div class="col-sm-3">
+              <input type="text" name="birthDay" class="form-control FformInput " placeholder="Day">
+            </div>
+            <div class="col-sm-3">
+            <input type="text" name="birthYear" class="form-control FformInput " placeholder="Year">
+          </div>
+        </div>
+      </div>
+
+      <%# gender%>
+      <div class="form-group">
+        <label for="">Gender</label><br>
+        <label class="custom-control custom-radio">
+          <input id="radio1" name="gender" value="0" type="radio" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Male</span>
+        </label>
+        <label class="custom-control custom-radio">
+          <input id="radio2" name="gender" type="radio" value="1" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Female</span>
+        </label>
+      </div>
+
+      <%# phone%>
+      <div class="form-group" style="margin-top:25px">
+        <label for="">Phone</label>
+        <div class="row">
+          <div class="col-3">
+            <input type="text" name="phoneCode" class="form-control FformInput" placeholder="+62">
+          </div>
+          <div class="col">
+            <input type="number" name="phone" class="form-control FformInput " placeholder="Your number">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group row text-center">
+        <div class="col-md-12">
+          <p style="margin:0">or</p>
+        </div>
+        <div class="col-md-12">
+          <a href="/users">Sign In</a>
+        </div>
+      </div>
+
+      <div class="form-group d-flex justify-content-center">
+        <div class="row">
+          <button type="submit" class="btn btn-primary Fbtn" style="margin-bottom:15px; width:200px">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <%# end of form div%>
+</div>
+<%# end of container%>
+</div>
+
+<%# foooter%>
+<%- include('main/footer') %>
+
+<%# script%>
+<%- include('main/scripts') %>
+
+<%# lastfooter%>
+<%- include('main/footerLast') %>

@@ -1,0 +1,105 @@
+<!-- < for head -->
+  <%- include('main/headSearch') %>
+
+    <div class="row" style="margin-top:64px;background:lightyellow">
+      <div class="container">
+
+        <div class="row">
+
+          <%# category left%>
+            <%- include('categoryleft') %>
+
+              <%# list%>
+                <div class="col-md-9">
+
+                  <% for(var a=0 ; a<=results.length-1;a++){ %>
+                    <div class="row Flist">
+                      <div class="col-md-4">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="listImage">
+                              <img src="<%= results[a].p_photo %>" alt="">
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-12" style="margin-top:20px">
+                            <div class="d-flex flex-row">
+                              <% for(var b=1 ; b<= results[a].avg;b++){ %>
+                                <div class="star-color star-size-v "></div>
+                                <% } %>
+                                  <% for(var b=results[a].avg ; b<5 ;b++){ %>
+                                    <div class="star star-size-v "></div>
+                                    <% } %>
+                                <div style="margin-left:5px"><%= results[a].count %> reviews </div>
+                            </div>
+
+
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="col-md-7">
+
+                        <div class="row">
+                          <a style="width:70%" href="/products/<%= results[a].p_id %>">
+                            <h3>
+                              <%= results[a].p_name %>
+                            </h3>
+                          </a>
+                          <div class="liststatus" style="width:30%">
+                            <p>Open</p>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <hr style="border:1px solid black;width:100%">
+                        </div>
+
+                        <div class="row">
+                          <p>
+                            <%= results[a].p_address %>
+                          </p>
+                        </div>
+
+                        <div class="row">
+                          <p>Jam
+                            <%= results[a].p_timeOpen %> -
+                              <%= results[a].p_timeClose %>
+                          </p>
+                        </div>
+
+                        <div class="row">
+                          <button type="button" class="btn btn-outline-dark" style="margin:5px">
+                            <%= results[a].p_category %>
+                          </button>
+                        </div>
+
+                        <div class="row d-flex justify-content-end">
+                          <a href="/products/<%= results[a].p_id %>">
+                            <button type="button " class="btn btn-outline-success" name="button">More</button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <%# end list%>
+                      <% } %>
+
+
+                </div>
+        </div>
+      </div>
+    </div>
+
+    <%# foooter%>
+      <%- include('main/footer') %>
+
+        <%# script%>
+          <%- include('main/scripts') %>
+            <script src="/javascripts/Fscripts.js"></script>
+
+            <%# lastfooter%>
+              <%- include('main/footerLast') %>

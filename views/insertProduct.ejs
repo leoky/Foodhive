@@ -1,0 +1,56 @@
+<%# for head%>
+<%- include('main/headUser') %>
+
+<div class="row" style="margin-top:80px">
+  <div class="container">
+    <form class="col-md-4" action="/register/product" method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name food</label>
+        <input type="text" class="form-control" name="nameProduct" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name food">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Photo</label>
+        <input type="file" class="form-control" name="photo" id="exampleInputPassword1" placeholder="">
+      </div>
+      <div class="form-group">
+        <label class="exampleInputPassword3">Address</label>
+          <input type="text" class="form-control" name="address" id="exampleInputPassword3" placeholder="address">
+      </div>
+      <div class="form-group">
+        <label class="exampleInputPassword4">Open time</label>
+          <input type="time" class="form-control" name="timeOpen" id="exampleInputPassword4" placeholder="">
+      </div>
+      <div class="form-group">
+        <label class="exampleInputPassword5">Close time</label>
+          <input type="time" class="form-control" name="timeClose" id="exampleInputPassword5" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword6">Category</label>
+        <input type="text" class="form-control" name="category" id="exampleInputPassword6" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword7">phone</label>
+        <input type="text" class="form-control" name="phone" id="exampleInputPassword7" placeholder="+62">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword8">Description</label>
+
+        <textarea name="desc" rows="8" cols="80" class="form-control" id="exampleInputPassword8" placeholder="desc"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+<%# foooter%>
+<%- include('main/footer') %>
+
+<%# script%>
+<%- include('main/scripts') %>
+
+<%# lastfooter%>
+<%- include('main/footerLast') %>

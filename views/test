@@ -1,0 +1,24 @@
+<%# for head%>
+<%- include('main/headSearch') %>
+
+<%# foooter%>
+<%- include('main/footer') %>
+
+<%# script%>
+<%- include('main/scripts') %>
+
+<%# lastfooter%>
+<%- include('main/footerLast') %>
+
+
+
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+
+module.exports = router;

@@ -1,0 +1,135 @@
+.up{
+  margin-top:60px;
+  /*margin-bottom: 40px;*/
+}
+
+.Fbtn{
+  border-radius: 20px;
+}
+.checked{
+  color:rgb(255, 227, 25);
+}
+
+/*========================================================================================*/
+/*----------------------------------home nav bar */
+.navbar .nav-item:hover .Fnav-link,
+.navbar .nav-item.active .Fnav-link{
+  color: yellow;
+}
+.navbar .nav-item .Fnav-link{
+  padding-left: 25x;
+  padding-right: 25px;
+  font-size: 20px;
+}
+
+/*----------------------------------home promo*/
+.col-md-6.Fcarosel{
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+}
+
+/*---------------------------------home category*/
+.col-md-4.Fcategorylist h3{
+  height: 150px;
+  background:#b3cc03;
+}
+
+.col-md-4.Fcategorylist{
+  padding: 10px;
+}
+
+.Fcategorylist .a h3{
+  padding:50px 0px;
+}
+
+/*-------------------------------home footer*/
+.Ffooter{
+  /*background:#ffc107;*/
+  background: rgba(1, 1, 1, 0.1);
+}
+.Ffooter .col-md-1 a,.Ffooter .col-md-2 a{
+  font-size: 23px;
+  color:black;
+}
+.Ffooter .col-md-1, .Ffooter .col-md-2{
+  padding: 10px;
+}
+.Ffooterline{
+  border: 2px red solid;
+}
+.Ffooter .col-md-1 a:hover,.Ffooter .col-md-2 a:hover{
+  text-decoration: none;
+  color: rgba(255, 0, 0, 0.521);
+}
+
+
+/*---------------------------------form*/
+.FformInput,.Fform{
+  border-radius: 20px;
+  text-indent: 5px;
+}
+.Fform{
+  background:rgba(1,1,1,0.2);
+}
+.Fform label{
+  font-size: 20px;
+}
+/*--------------------------------------- search list*/
+.Flist{
+  background: rgba(1, 1, 1, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px black;
+  margin:15px;
+}
+.liststatus p{
+  background: orange;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+.listImage img{
+  width:100%;
+}
+.listImage{
+  padding: 5px;
+  border: 1px black solid;
+}
+/*------------------------------------------search categoryside*/
+.sideCategoryList{
+  /*color:red;*/
+  font-size: 23px;
+}
+.sideCategoryList a{
+  color: red;
+  text-decoration: none;
+}
+.sideCategory{
+  margin-top: 50px;
+}
+/*--------------------------------------------product star */
+.rating_star {
+   background: url('../images/icon/star.png')no-repeat;
+   background-size: 100% 100%;  
+}
+.star-size{
+  width: 30px;height: 30px;   
+}
+.rating_star:hover {
+   background: url('../images/icon/star-color.png') no-repeat;
+   background-size: 100% 100%;  
+} 
+.selectedd {
+  background: url('../images/icon/star-color.png') no-repeat;
+  background-size: 100% 100%;  
+}
+.star {
+  background: url('../images/icon/star.png')no-repeat;
+  background-size: 100% 100%;  
+}
+.star-color {
+  background: url('../images/icon/star-color.png')no-repeat;
+  background-size: 100% 100%;  
+}
+.star-size-v{
+  width: 21px;height: 21px;   
+}

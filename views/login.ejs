@@ -1,0 +1,58 @@
+<%# for head%>
+<%- include('main/headUser') %>
+
+<%# login%>
+<div class="container up" style="margin-bottom:40px">
+  <div class="row  justify-content-center">
+    <div class="col-md-4">
+        <img src="/images/logo.jpg" alt="foodhive logo" style="width:100%">
+    </div>
+  </div>
+
+  <%# form%>
+  <div class="row d-flex justify-content-center">
+    <div class="row Fform text-center" style="padding:0 30px">
+      <form class="" action="/users" method="post">
+        <div class="form-group" style="margin-top:25px">
+          <%# <label for="exampleInputEmail1">Email address</label>%>
+          <input type="email" name="username" class="form-control FformInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <%# <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>%>
+        </div>
+        <div class="form-group" style="margin-top:25px">
+          <%# <label for="exampleInputPassword1">Password</label>%>
+          <input type="password" name="password" class="form-control FformInput" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Remember me
+          </label>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <a href="#">Forget password</a>
+          </div>
+          <div class="col-md-12">
+            <p style="margin:0">or</p>
+          </div>
+          <div class="col-md-12">
+            <a href="/register">Create account</a>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-bottom:15px">Submit</button>
+      </form>
+    </div>
+    <%# end of form div%>
+  </div>
+  <%# end of container%>
+</div>
+
+<%# foooter%>
+<%- include('main/footer') %>
+
+<%# script%>
+<%- include('main/scripts') %>
+
+<%# lastfooter%>
+<%- include('main/footerLast') %>

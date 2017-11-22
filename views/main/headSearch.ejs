@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <%#  B E G I N%>
+
+    <div class="container-fluid" style="padding:0px;">
+
+
+      <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#ffa300;">
+          <div class="col-md-3" style="width:70%">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="width:30%">
+              <img src="/images/FoodHive2.png" width="250" height="40" alt="FoodHive Logo">
+            </a>
+
+          </div>
+
+
+          <div class="col-md-6">
+            <form class="form-inline" action="/search" method="get">
+              <input class="form-control mr-sm-2" name="Fsearch" type="text" placeholder="Search" aria-label="Search" style="width:83%">
+              <button class="btn btn-outline-success my-sm-0" type="submit" style="width:15%">Search</button>
+            </form>
+          </div>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link Fnav-link" href="#">Category</a>
+              </li>
+              <% if(login){ %> 
+                <li class="nav-item">
+                  <a class="nav-link Fnav-link" href="/users/logout?u=<%= urlTemp %>">Log out</a>
+                </li>
+               
+              <% }else{ %>
+                <li class="nav-item">
+                  <a class="nav-link Fnav-link" href="/register">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                  <!-- <form action="/login" method="get"> -->
+                  <!-- <a class="nav-link Fnav-link" href="/users?url=<%= urlTemp %>">Sign In</a> -->
+                  <a class="nav-link Fnav-link" href="/users?u=<%= urlTemp %>">Sign In</a>
+                  <!-- </form> -->
+                </li>
+              <% } %>
+            </ul>
+          </div>
+        </nav>
+      </div>

@@ -1,0 +1,327 @@
+<%# for head%>
+  <%- include('../main/headSearch') %>
+
+    <div class="row" style="margin-top:81.5px;">
+      <div class="container">
+        <div class="row">
+          <%# category left%>
+            <%- include('../categoryleft') %>
+
+              <div class="col-md-9" style="margin:0 30px">
+
+                <!-- <%#------------------------------------------------------------ row product dec%> -->
+                <div class="row">
+                  <h3>
+                    <%= results[0].p_name %>
+                  </h3>
+
+                  <div class="card card-body">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img src="<%= results[0].p_photo %>" alt="" style="width:100%">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="row">
+                          <h4>Description</h4>
+                        </div>
+                        <div class="row">
+                          <p>
+                            <%= results[0].p_desc %>
+                          </p>
+                        </div>
+
+                        <div class="row">
+                          <table style="width:100%" class="table table-responsive">
+                            <tr>
+                              <td>
+                                <img src="/images/icon/location.svg" alt="">
+                              </td>
+                              <td style="width:50%">
+                                <p style="margin:0 5px">
+                                  <%= results[0].p_address %>
+                                </p>
+                              </td>
+                              <td>
+                                <img src="/images/icon/phone.svg" alt="">
+                              </td>
+                              <td>
+                                <p style="margin:0 5px">
+                                  <%= results[0].p_phone %>
+                                </p>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td>
+                                <img src="/images/icon/time.svg" alt="">
+                              </td>
+                              <td>
+                                <p style="margin:0 5px">
+                                  <%= results[0].p_timeOpen %> -
+                                    <%= results[0].p_timeClose %>
+                                </p>
+                              </td>
+                              <td>
+                                <img src="/images/icon/phone.svg" alt="">
+
+                              </td>
+                              <td>
+                                <p style="margin:0 5px"></p>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+                    <!-- <%# end card%> -->
+                  </div>
+                  <!-- <%# end prodcut dec%> -->
+                </div>
+
+                <!-- check has already review ? -->
+                <% if(userData.length){ %>
+                  <!----------------------------------------------review input edit commnet -->
+                  <div class="row e-review-box" id="review-box3">
+                    <div class="card card-body text-center" style="padding:0">
+                      <div class="card-header">
+                        <h2>Your review </h2>
+                      </div>
+
+                      <div class="card-body" style="height:300px">
+                        <div class="row" style="margin:25px">
+                          <div class="d-flex justify-content-center" style="margin:auto" \>
+                            <% for(var b=1 ; b<= userData[0].r_star;b++){ %>
+                              <div class="star-color star-size-v "></div>
+                              <% } %>
+                                <% for(var b=userData[0].r_star ; b<5 ;b++){ %>
+                                  <div class="star star-size-v "></div>
+                                  <% } %>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <textarea name="Freview" style="width:100%;height:180px" disabled><%= userData[0].r_review %></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-center">
+                        <div class="" style="margin:0 20px">
+                          <button type="submit" class="btn btn-outline-success" id="btn-next3" style="margin-bottom:20px">edit</button>
+                        </div>
+                        <div class="" style="margin:0 20px">
+                          <form action="/products/<%= userData[0].p_id %>/del" method="get">
+                            <button type="submit" class="btn btn-outline-secondary" style="margin-bottom:20px">Delete</button>
+                          </form>
+                        </div>
+                      </div>
+
+                      <div class="card-footer text-muted rateStarStatus" style="height:50px">
+
+                      </div>
+                    </div>
+                    <!-- ---------------------------------- end reveiw input edit commnet session-->
+                  </div>
+
+                  <!-- if edit -->
+                  <form action="/products/<%= results[0].p_id %>" method="post">
+                    <div class="row e-review-box" id="review-box" style="display:none">
+                      <div class="card card-body text-center" style="padding:0">
+                        <div class="card-header">
+                          <h2>Edit your review</h2>
+                        </div>
+                        <div class="card-body" style="padding-top:65px;height:150px">
+                          <div class="d-flex flex-row justify-content-center">
+                            <div class="rating_star star-size" data-rate="1" data-rtext="Hate it!"></div>
+                            <div class="rating_star star-size" data-rate="2" data-rtext="Dislike it!"></div>
+                            <div class="rating_star star-size" data-rate="3" data-rtext="It's OK!"></div>
+                            <div class="rating_star star-size" data-rate="4" data-rtext="Liked it!"></div>
+                            <div class="rating_star star-size" data-rate="5" data-rtext="Loved it!"></div>
+                          </div>
+                        </div>
+                        <input type="hidden" id="rating" name="rate" value="-1">
+                        <div class="d-flex">
+                          <button type="button" id="btn-back3" class="btn btn-outline-warning  justify-content-start" style="margin-bottom:20px;margin-left:20px">Back</button>
+                          <button type="button" id="btn-next" class="btn btn-outline-warning  justify-content-end" style="margin-bottom:20px;margin-left:20px">Next</button>
+                        </div>
+                        <div class="card-footer text-muted rateStarStatus" style="height:50px">
+
+                        </div>
+                      </div>
+                      <!-- --------------------------------- end reveiw edit session star-->
+                    </div>
+
+                    <!----------------------------------------------review edit input commnet -->
+                    <div class="row" id="review-box2" style="display:none">
+                      <div class="card card-body text-center" style="padding:0">
+                        <div class="card-header">
+                          <h2>Input your new review </h2>
+                        </div>
+
+                        <form action="/products/<%= results[0].p_id %>" method="post">
+                          <div class="card-body" style="padding-top:65px;height:300px">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <textarea name="Freview" style="width:100%;height:180px"></textarea>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="d-flex justify-content-center">
+                            <button type="button" id="btn-back2" class="btn btn-outline-warning  justify-content-start" style="margin-bottom:20px;margin-right:30px">Back</button>
+                            <button type="submit" class="btn btn-outline-success" style="margin-bottom:20px">Update</button>
+                          </div>
+                        </form>
+
+                        <div class="card-footer text-muted rateStarStatus" style="height:50px">
+
+                        </div>
+                      </div>
+                      <!-- ---------------------------------- end reveiw edit input commnet session-->
+                    </div>
+                  </form>
+                  <!-- close edit -->
+                  <% } else { %>
+
+                    <!-- ------------------------------------------------------------------review sesion star-->
+                    <form class="" action="/products/<%= results[0].p_id %>" method="post">
+                      <div class="row review-box1" id="review-box">
+                        <div class="card card-body text-center" style="padding:0">
+                          <div class="card-header">
+                            <h2>Rate this Food</h2>
+                          </div>
+                          <div class="card-body" style="padding-top:65px;height:150px">
+                            <div class="d-flex flex-row justify-content-center">
+                              <div class="rating_star star-size" data-rate="1" data-rtext="Hate it!"></div>
+                              <div class="rating_star star-size" data-rate="2" data-rtext="Dislike it!"></div>
+                              <div class="rating_star star-size" data-rate="3" data-rtext="It's OK!"></div>
+                              <div class="rating_star star-size" data-rate="4" data-rtext="Liked it!"></div>
+                              <div class="rating_star star-size" data-rate="5" data-rtext="Loved it!"></div>
+                              <% if(login==false){ %>
+                                <a class="btn btn-warning" style="z-index:2;width:30%;position:absolute" href="/users?u=<%= urlTemp %>" >Please Log in first </a>
+                                <% }  %>
+                            </div>
+                          </div>
+
+                          <input type="hidden" id="rating" name="rate" value="-1">
+                          <% if(login==true){ %>
+                            <div class="d-flex justify-content-end">
+                              <button type="button" id="btn-next" class="btn btn-outline-warning" style="margin-bottom:20px;margin-left:20px">Next</button>
+                            </div>
+                          <% }  %>
+                          
+                          <div class="card-footer text-muted rateStarStatus" style="height:50px">
+
+                          </div>
+                        </div>
+                        <!-- --------------------------------- end reveiw session star-->
+                      </div>
+
+                      <!----------------------------------------------review input commnet -->
+                      <div class="row review-box" id="review-box2" style="display:none">
+                        <div class="card card-body text-center" style="padding:0">
+                          <div class="card-header">
+                            <h2>Input your review </h2>
+                          </div>
+
+                          <div class="card-body" style="padding-top:65px;height:300px">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <textarea name="Freview" style="width:100%;height:180px"></textarea>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="d-flex justify-content-center">
+                            <button type="button" id="btn-back2" class="btn btn-outline-warning  justify-content-start" style="margin-bottom:20px;margin-right:30px">Back</button>
+                            <button type="submit" class="btn btn-outline-success" style="margin-bottom:20px">Submit</button>
+                          </div>
+
+                          <div class="card-footer text-muted rateStarStatus" style="height:50px">
+
+                          </div>
+                        </div>
+                        <!-- ---------------------------------- end reveiw input commnet session-->
+                      </div>
+                    </form>
+                    <% } %>
+                      <!-- --------------------------------------------------------------------------------alll -comment session -->
+                      <% if(allComment){ %>
+                        <div class="row" style="margin:10px 0">
+                          <h4>
+                            <%= results.length %> Comments</h4>
+                        </div>
+                        <% for(var a=0 ; a<=results.length-1;a++){ %>
+                          <div class="row">
+                            <div class="card card-body">
+
+                              <!-- ------------------------------------------ -->
+                              <div class="row" style="margin-bottom:25px;">
+                                <div class="col" style="width:10%">
+                                  <img src="../images/icon/account.svg" class="" alt="" style="width:100%">
+                                </div>
+                                <div class="col-md-11" style="width:90%">
+                                  <div class="card card-body" style="box-shadow:0px 0px 10px">
+                                    <div class="row">
+                                      <div class="col" style="width:70%">
+                                        <div class="row">
+                                          <a href="#">
+                                            <p style="margin-left:10px;margin-bottom:0">
+                                              <%= results[a].u_firstName %>
+                                            </p>
+                                          </a>
+                                        </div>
+                                        <div class="row">
+                                          <div class="d-flex flex-row" style="margin-left:13px">
+                                            <% for(var b=1 ; b<= results[a].r_star;b++){ %>
+                                              <div class="star-color star-size-v "></div>
+                                              <% } %>
+                                                <% for(var b=results[a].r_star ; b<5 ;b++){ %>
+                                                  <div class="star star-size-v "></div>
+                                                  <% } %>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col" style="width:30%">
+                                        <p>
+                                          <%= results[a].r_date %>
+                                            <p>
+                                      </div>
+                                    </div>
+                                    <article>
+                                      <%= results[a].r_review %>
+                                    </article>
+                                  </div>
+                                </div>
+                                <%# end row comment%>
+                              </div>
+
+                              <%# end comment card%>
+                            </div>
+                            <!-- ---------------------------------------------end comment -->
+                          </div>
+                          <% } %>
+                            <% }else { %>
+                              <div class="row" style="margin:10px 0">
+                                <h4>No yet Comments</h4>
+                              </div>
+                              <% } %>
+                                <%# end col%>
+              </div>
+              <%# end row%>
+        </div>
+
+        <%# end container%>
+      </div>
+    </div>
+
+    <%# footer%>
+      <%- include('../main/footer') %>
+
+        <%# script%>
+          <%- include('../main/scripts') %>
+            <script src="/javascripts/Fscripts.js"></script>
+
+            <%# lastfooter%>
+              <%- include('../main/footerLast') %>
