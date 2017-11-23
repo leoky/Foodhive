@@ -2,6 +2,26 @@ var express = require('express');
 var router = express.Router();
 var connection = require('../db.js');
 // var users = require('../library/Fdb.js');
+var multer = require('multer');
+var Storage = multer.diskStorage({
+   destination: function(req, file, callback) {
+       callback(null, "./public/images/product/");
+   },
+   filename: function(req, file, callback) {
+       callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+   }
+});
+
+var upload = multer({
+    storage: Storage
+    // fileFilter: function(req, file, callback) {
+    //   var ext = path.extname(file.originalname)
+    //   if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+    //     return callback(res.end('Only images are allowed'), null)
+    //   }
+    //   callback(null, true)
+    // }
+});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -37,23 +57,6 @@ router.post('/',(req,res)=>{
     }
   });
 });
-// router.post('/',(req,res,next)=>{
-//   var data = req.body;
-//     var allData = [
-//       data.email,
-//       data.firstName,
-//       data.lastName,
-//       data.password,
-//       data.birthYear+"-"+data.birthMonth +"-"+data.birthDay,
-//       data.gender,
-//       data.phoneCode +""+data.phone
-//     ];
-//   users.insertUser(allData,(req,res,next)=>{
-//     if (err) return res.redirect('/users');
-//      console.log('Data has been inserted...');
-//      res.redirect('/');
-//   })
-// })
 
 
 // regis product
@@ -65,8 +68,8 @@ router.post('/product', function(req, res, next) {
   var data =req.body;
   var allData=[
     data.nameProduct,
-    // data.photo,
-    '/images/product/ayam.jpg',
+    data.photo,
+    // '/images/product/ayam.jpg',
     data.address,
     data.timeOpen,
     data.timeClose,
