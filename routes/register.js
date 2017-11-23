@@ -5,6 +5,7 @@ var fs = require('fs');
 var multer = require('multer');
 
 var productLocation = "./public/images/product/";
+var photoName;
 var Storage = multer.diskStorage({
   destination: function (req, file, callback) {
     connection.get().query('select * from product order by p_id desc limit 1', (err, results) => {
@@ -12,16 +13,18 @@ var Storage = multer.diskStorage({
         console.log('errr in input product db' + err);
       } else {
         fs.mkdirSync("./public/images/product/" + (results[0].p_id + 1), (err) => {
+          //if err
           console.log("err in regist using fs " + err);
         });
-        productLocation = "/images/product/" + (results[0].p_id + 1) + "/" + Date.now() + "_" + file.originalname;
+        photoName = Date.now() + "_" + file.originalname;
+        productLocation = "/images/product/" + (results[0].p_id + 1) + "/" +photoName;
         console.log("PRODUCT : " + productLocation);
         callback(null, "./public/images/product/" + (results[0].p_id + 1));
       }
     });
   },
   filename: function (req, file, callback) {
-    callback(null, Date.now() + "_" + file.originalname);
+    callback(null,photoName);
   }
 });
 
