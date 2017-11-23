@@ -64,7 +64,7 @@ router.get('/product', function(req, res, next) {
   res.render('insertProduct');
 });
 
-router.post('/product', function(req, res, next) {
+router.post('/product',upload.single('photo'), function(req, res, next) {
   var data =req.body;
   var allData=[
     data.nameProduct,
