@@ -1,0 +1,88 @@
+<!-- for head -->
+<%- include('main/headSearch') %>
+
+    <!-- admin page -->
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+    <div class="row" style="margin-top:100px">
+        <div class="col-md-12">
+            <table id="review">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>user</th>
+                        <th>product</th>
+                        <th>product name</th>
+                        <th>review</th>
+                        <th>date</th>
+                        <th>status</th>
+                        <th>Success</th>
+                        <th>Postpone</th>
+                        <th>Deleted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var a=0;a<finalResult.length;a++){ %>
+                        <tr>
+                            <td>
+                                <%= finalResult[a].r_id %>
+                            </td>
+                            <td>
+                                <%= finalResult[a].u_id %>
+                            </td>
+                            <td>
+                                <%= finalResult[a].p_id %>
+                            </td>
+                            <td>
+                                <%= finalResult[a].p_name %>
+                            </td>
+                            <td>
+                                <%= finalResult[a].r_review %>
+                            </td>
+                            <td>
+                                <%= finalResult[a].r_date %>
+                            </td>
+                            <% if(finalResult[a].s_id ==1){ %>
+                                <td style="color:green">success </td>
+                                <% } else if(finalResult[a].s_id ==2){ %>
+                                    <td style="color:yellow">Postpone</td>
+                                    <% } else{ %>
+                                        <td style="color:red">deleted</td>
+                                        <% } %>
+
+                                            <td>
+                                                <form action="/admin/update/1/<%= finalResult[a].r_id %>" method="post">
+                                                    <button type="submit" class="btn btn-outline-success">Sucess</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="/admin/update/2/<%= finalResult[a].r_id %>" method="post">
+                                                    <button type="submit" class="btn btn-outline-warning">postphone</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="/admin/update/0/<%= finalResult[a].r_id %>" method="post">
+                                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                                </form>
+                                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--  foooter -->
+    <%- include('main/footer') %>
+
+        <!--  script -->
+        <%- include('main/scripts') %>
+            <script src="/javascripts/Fscripts.js"></script>
+            <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $("#review").dataTable();
+                });
+            </script>
+            <!--  lastfooter -->
+            <%- include('main/footerLast') %>
